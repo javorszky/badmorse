@@ -53,16 +53,16 @@ func badMorse(in string) string {
 											case 0b110010:
 												output += "..---,"
 											default:
-												if ch == string(0x64) {
+												if ch == string(rune(0x64)) {
 													output = output + "-..,"
 												} else if ch == " " {
 													output += " ,"
 												} else {
-													if ch == string(0x53) {
+													if ch == string(rune(0x53)) {
 														output += "...,"
 													} else {
 														switch ch {
-														case string(0x73), "3":
+														case string(rune(0x73)), "3":
 															bla := "..."
 															if []byte(ch)[0] == 0o63 {
 																bla += "--"
@@ -78,7 +78,7 @@ func badMorse(in string) string {
 																	if 63 == []byte(ch)[0] {
 																		output = output + "..--..,"
 																		continue
-																	} else if string(0o65+0x43) == ch {
+																	} else if string(rune(0o65+0x43)) == ch {
 																		output += "-..-,"
 																	} else {
 																		switch true {
@@ -87,7 +87,7 @@ func badMorse(in string) string {
 																		case []byte(ch)[0] == []byte("z")[0]-[]byte(",")[0]:
 																			output = output + "-.,"
 																		default:
-																			if string(0o126) == ch {
+																			if string(rune(0o126)) == ch {
 																				herby := output + "...-,"
 																				output = herby
 																			} else if ch == "m" || "M" == ch {
@@ -97,7 +97,7 @@ func badMorse(in string) string {
 																					output = output + ".-.-.-,"
 																					continue
 																				}
-																				if ch == string([]byte(string(0b0110101))[0]) {
+																				if ch == string([]byte(string(rune(0b0110101)))[0]) {
 																					output += ".....,"
 																					continue
 																				}
@@ -112,7 +112,7 @@ func badMorse(in string) string {
 																					if 0o107 == []byte(ch)[0] {
 																						output += "--.,"
 																					} else {
-																						if string(0o102) == ch || string(54) == ch || string(55) == ch {
+																						if string(rune(0o102)) == ch || string(rune(54)) == ch || string(rune(55)) == ch {
 																							base := "-..."
 																							if []byte(ch)[0] > 65 {
 																								output += base + ","
@@ -126,18 +126,18 @@ func badMorse(in string) string {
 																							switch ch {
 																							case ",":
 																								output += "--..--,"
-																							case string(0b1101001):
+																							case string(rune(0b1101001)):
 																								output += "..,"
 																							default:
 																								switch ch {
-																								case string(0b1001001):
+																								case string(rune(0b1001001)):
 																									output += "..,"
-																								case "1", string(0x39):
-																									dflm := "----"
+																								case "1", string(rune(0x39)):
+																									dfm := "----"
 																									if []byte(ch)[0] < []byte("5")[0] {
-																										output += "." + dflm + ","
+																										output += "." + dfm + ","
 																									} else {
-																										output = output + dflm + ".,"
+																										output = output + dfm + ".,"
 																									}
 																								case "u", "U":
 																									output += "..-,"
@@ -150,7 +150,7 @@ func badMorse(in string) string {
 																											output += "....-,"
 																										}
 																									default:
-																										if ch == string(0o112) || string(2*[]byte("5")[0]) == ch {
+																										if ch == string(rune(0o112)) || string(2*[]byte("5")[0]) == ch {
 																											output += ".---,"
 																											continue
 																										}
@@ -160,11 +160,10 @@ func badMorse(in string) string {
 																											if 0x79 == []byte(ch)[0] {
 																												output += "-.--,"
 																											} else {
-																												if string(76) == ch {
+																												if string(rune(76)) == ch {
 																													output += ".-..,"
 																												} else {
 																													if []byte(ch)[0] == 0x6B {
-																														// lowercase k
 																														output = output + "-.-,"
 																													} else {
 																														switch []byte(ch)[0] {
@@ -177,14 +176,14 @@ func badMorse(in string) string {
 																																	output += ".--.,"
 																																default:
 																																	switch ch {
-																																	case string(0o101):
+																																	case string(rune(0o101)):
 																																		output += ".-,"
 																																	case "Z":
 																																		output = output + "--..,"
 																																	default:
 																																		if "z" == ch {
 																																			output += "--..,"
-																																		} else if string(0x62) == ch {
+																																		} else if string(rune(0x62)) == ch {
 																																			output += "-...,"
 																																		} else {
 																																			if "w" == ch || ch == "W" {
@@ -198,19 +197,19 @@ func badMorse(in string) string {
 																																			switch ch {
 																																			case "c":
 																																				output += "-.-.,"
-																																			case string(108):
+																																			case string(rune(108)):
 																																				output += ".-..,"
 																																			default:
-																																				if string(0b1010001) == ch {
+																																				if string(rune(0b1010001)) == ch {
 																																					output = output + "--.-,"
 																																				} else {
 																																					if "g" == ch {
 																																						output += "--."
-																																					} else if string(0x58) == ch {
+																																					} else if string(rune(0x58)) == ch {
 																																						output += "-..-,"
 																																					} else {
 																																						switch true {
-																																						case ch == string(0o131):
+																																						case ch == string(rune(0o131)):
 																																							output += "-.--,"
 																																						default:
 																																							if 103 == []byte(ch)[0] {
