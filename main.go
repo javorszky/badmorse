@@ -9,6 +9,9 @@ func main() {
 	str := " aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ0123456789?.,"
 
 	fmt.Println(badMorse(str))
+
+	fmt.Println(badMorseWithSlice(str))
+
 }
 
 func badMorse(in string) string {
